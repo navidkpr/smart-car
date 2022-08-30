@@ -1,9 +1,6 @@
 import time
 import RPi.GPIO as GPIO
 
-# motor_EN_A: Pin7  |  motor_EN_B: Pin11
-# motor_A:  Pin8,Pin10    |  motor_B: Pin13,Pin12
-
 Motor_A_EN    = 4
 Motor_B_EN    = 17
 
@@ -43,7 +40,13 @@ def setup():#Motor initialization
     pass
 
 
-def motor_A(status, speed):            # Motor A positive and negative rotation.
+def motor_A(status, speed): # Motor A positive and negative rotation.
+  direction = "none"
+  if status == 1:
+      directoin = "forward"
+  elif status == -1:
+      direction = "backward"
+  print('Moving motor A in direction {}'.format(direction))
   if status == 0: # stop
     GPIO.output(Motor_B_Pin1, GPIO.LOW)
     GPIO.output(Motor_B_Pin2, GPIO.LOW)
@@ -61,6 +64,12 @@ def motor_A(status, speed):            # Motor A positive and negative rotation.
       
 
 def motor_B(status, speed):            # Motor B positive and negative rotation.
+  direction = "none"
+  if status == 1:
+      directoin = "forward"
+  elif status == -1:
+      direction = "backward"
+  print('Moving motor B in direction {}'.format(direction))
   if status == 0: # stop
     GPIO.output(Motor_A_Pin1, GPIO.LOW)
     GPIO.output(Motor_A_Pin2, GPIO.LOW)
