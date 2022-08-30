@@ -1,10 +1,10 @@
 import time
 import RPi.GPIO as GPIO
 
-Motor_A_EN = 11
+Motor_A_EN = 7
 
-Motor_A_Pin1 = 13
-Motor_A_Pin2 = 12
+Motor_A_Pin1 = 8
+Motor_A_Pin2 = 10
 
 def motorStop():
     GPIO.output(Motor_A_Pin1, GPIO.LOW)
