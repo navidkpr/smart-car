@@ -29,6 +29,7 @@ def destroy():
     GPIO.cleanup()
 
 def motor_left(direction, speed):
+    print("Moving motoro in {} direction with speed {}".format(direction, speed))
     if direction == 1:
         GPIO.output(Motor_A_Pin1, GPIO.LOW)
         GPIO.output(Motor_A_Pin2, GPIO.HIGH)
