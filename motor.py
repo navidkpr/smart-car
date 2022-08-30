@@ -7,9 +7,9 @@ Motor_A_Pin1 = 13
 Motor_A_Pin2 = 12
 
 def motorStop():
-    GPIO.output(MOTOR_A_PIN1, GPIO.LOW)
-    GPIO.output(MOTOR_A_PIN2, GPIO.LOW)
-    GPIO.output(MOTOR_A_EN, GPIO.LOW)
+    GPIO.output(Motor_A_Pin1, GPIO.LOW)
+    GPIO.output(Motor_A_Pin2, GPIO.LOW)
+    GPIO.output(Motor_A_EN, GPIO.LOW)
 
 
 def setup():#Motor initialization  
