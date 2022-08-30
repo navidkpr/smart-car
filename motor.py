@@ -6,7 +6,7 @@ MOTOR_A_EN = 11
 MOTOR_A_PIN1 = 13
 MOTOR_A_PIN2 = 12
 
-def motorStop:
+def motorStop():
     GPIO.output(MOTOR_A_PIN1, GPIO.LOW)
     GPIO.output(MOTOR_A_PIN2, GPIO.LOW)
     GPIO.output(MOTOR_A_EN, GPIO.LOW)
