@@ -67,7 +67,7 @@ if __name__ == "__main__":
         time.sleep(1.3)  
         move(speed_set, 'forward', 'right', 0.8)  
         time.sleep(1.3)  
-        move(speed_set, 'forward', 'left', 0.8)  
+        move(speed_set, 'forward', 'no', 0.8)
         motorStop()  
         destroy()  
     except KeyboardInterrupt:  
