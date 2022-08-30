@@ -1,7 +1,6 @@
 import time
 import RPi.GPIO as GPIO
 
-
 Motor_A_EN = 11
 
 Motor_A_Pin1 = 13
