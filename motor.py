@@ -21,27 +21,42 @@ def setup():#Motor initialization
     GPIO.setup(Motor_A_Pin2, GPIO.OUT)
     motorStop()  
     try:  
-        pwm_A = GPIO.PWM(Motor_A_EN, 1000)  
+        pwm_A = GPIO.PWM(Motor_A_EN, 1000)
     except:  
         pass  
 def destroy():  
     motorStop()
     GPIO.cleanup()
 
-# def move(speed, direction, turn, radius=0.6):   # 0 < radius <= 1    
-#     #speed = 100  
-#     if direction == 'forward':  
-#         if turn == 'right':  
-#             motor_left(0, left_backward, int(speed*radius))  
-#             motor_right(1, right_forward, speed)  
-#         elif turn == 'left':  
-#             motor_left(1, left_forward, speed)  
-#             motor_right(0, right_backward, int(speed*radius))  
-#         else:  
-#             motor_left(1, left_forward, speed)  
-#             motor_right(1, right_forward, speed)  
-#     else:  
-#         pass  
+def motor_left(direction, speed):
+    if direction == 1:
+        GPIO.output(Motor_A_Pin1, GPIO.LOW)
+        GPIO.output(Motor_A_Pin2, GPIO.HIGH)
+        pwm_A.start(0)
+        pwm_A.ChangeDutyCycle(speed)
+    elif direction == 0:
+        GPIO.output(Motor_A_Pin1, GPIO.HIGH)
+        GPIO.output(Motor_A_Pin2, GPIO.LOW)
+        pwm_A.start(100)
+        pwm_A.ChangeDutyCycle(speed)
+    else:
+        GPIO.output(Motor_A_Pin1, GPIO.LOW)
+        GPIO.output(Motor_A_Pin2, GPIO.LOW)
+
+def move(speed, direction, turn, radius=0.6):   # 0 < radius <= 1    
+    #speed = 100  
+    if direction == 'forward':  
+        if turn == 'right':  
+            motor_left(0, int(speed*radius))  
+            # motor_right(1, right_forward, speed)  
+        elif turn == 'left':  
+            motor_left(1, speed)  
+            # motor_right(0, right_backward, int(speed*radius))  
+        else:  
+            motor_left(1, speed)  
+            # motor_right(1, right_forward, speed)  
+    else:  
+        pass  
 
 if __name__ == "__main__":
     try:
