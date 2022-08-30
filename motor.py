@@ -44,7 +44,7 @@ def motor_left(direction, speed):
         GPIO.output(Motor_A_Pin2, GPIO.LOW)
 
 def move(speed, direction, turn, radius=0.6):   # 0 < radius <= 1    
-    #speed = 100  
+    # speed = 100  
     if direction == 'forward':  
         if turn == 'right':  
             motor_left(0, int(speed*radius))  
@@ -61,9 +61,12 @@ def move(speed, direction, turn, radius=0.6):   # 0 < radius <= 1
 if __name__ == "__main__":
     try:
         speed_set = 60  
-        setup()  
+        setup()
         move(speed_set, 'forward', 'no', 0.8)  
         time.sleep(1.3)  
+        move(speed_set, 'forward', 'right', 0.8)  
+        time.sleep(1.3)  
+        move(speed_set, 'forward', 'left', 0.8)  
         motorStop()  
         destroy()  
     except KeyboardInterrupt:  
