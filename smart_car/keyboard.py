@@ -1,4 +1,5 @@
 import sys,tty,termios
+# from pynput.keyboard import Key
 from enum import Enum
 
 class Key(Enum):
@@ -6,7 +7,8 @@ class Key(Enum):
         Right = 2
         Down = 3
         Left = 4
-        Unknown = 5
+        Esc = 5
+        Unknown = 6
 
 class _Getch:
     def __call__(self):
@@ -32,12 +34,14 @@ def getKey() -> Key:
                 return Key.Right
         elif k=='\x1b[D':
                 return Key.Left
+        elif k==chr(27).encode():
+                return Key.Esc
         else:
                 return Key.Unknown
 
 def main():
         for i in range(0,20):
-                print(get())
+                print(getKey())
 
 if __name__=='__main__':
         main()
