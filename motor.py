@@ -1,5 +1,7 @@
 import time
+from tkinter import N
 import RPi.GPIO as GPIO
+from smart_car.keyboard import Key, getKey
 
 Motor_A_EN    = 4
 Motor_B_EN    = 17
@@ -88,21 +90,23 @@ def motor_B(status, speed):            # Motor B positive and negative rotation.
 
 
 def move(speed, direction): 
-  #speed = 100
-  if direction == 'forward':
-      print('moving forward')
-      motor_A(1, speed)
-      motor_B(1, speed)
-  elif direction == 'backward':
-      print('moving backward')
-      motor_A(-1, speed)
-      motor_B(-1, speed)
-  elif direction == 'stop':
-      print('stop')
-      motor_A(0, speed)
-      motor_B(0, speed)
-  else:
-    pass
+  while (1):
+    key: Key = getKey()
+    if key == Key.Up:
+        print('moving forward')
+        motor_A(1, speed)
+        motor_B(1, speed)
+    elif key == Key.Down:
+        print('moving backward')
+        motor_A(-1, speed)
+        motor_B(-1, speed)
+    else:
+        print('stop')
+        break
+        # motor_A(0, speed)
+        # motor_B(0, speed)
+    # else:
+    #   pass
 
 def destroy():
   motorStop()
