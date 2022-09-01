@@ -119,6 +119,7 @@ if __name__ == '__main__':
       # speed_set = 60
       setup()
       move()
+      destroy()
       # motorStop()
       # move(speed_set, 'forward')
       # motorStop()
