@@ -100,8 +100,16 @@ def move():
         print('moving backward')
         motor_A(-1, 100)
         motor_B(-1, 100)
-    elif key == Key.Unknown:
-        exit()
+    elif key == Key.Left:
+        print('moving left')
+        motor_A(1, 50)
+        motor_B(1, 100)
+    elif key == Key.Right:
+        print('moving right')
+        motor_A(1, 100)
+        motor_B(1, 50)
+    # elif key == Key.Unknown:
+    #     exit()
     else:
         print('stop')
         break
