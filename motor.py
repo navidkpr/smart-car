@@ -89,17 +89,17 @@ def motor_B(status, speed):            # Motor B positive and negative rotation.
 
 
 
-def move(speed, direction): 
+def move(): 
   while (1):
     key: Key = getKey()
     if key == Key.Up:
         print('moving forward')
-        motor_A(1, speed)
-        motor_B(1, speed)
+        motor_A(1, 100)
+        motor_B(1, 100)
     elif key == Key.Down:
         print('moving backward')
-        motor_A(-1, speed)
-        motor_B(-1, speed)
+        motor_A(-1, 100)
+        motor_B(-1, 100)
     else:
         print('stop')
         break
@@ -118,13 +118,14 @@ if __name__ == '__main__':
     while True:
       speed_set = 60
       setup()
-      move(speed_set, 'forward')
-      time.sleep(3)
-      motorStop()
-      time.sleep(1.5)
-      move(speed_set, 'backward')
-      time.sleep(3)
-      motorStop()
-      time.sleep(1.5)
+      move()
+      # move(speed_set, 'forward')
+      # time.sleep(3)
+      # motorStop()
+      # time.sleep(1.5)
+      # move(speed_set, 'backward')
+      # time.sleep(3)
+      # motorStop()
+      # time.sleep(1.5)
   except KeyboardInterrupt:
     destroy()
