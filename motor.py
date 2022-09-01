@@ -43,9 +43,9 @@ def setup():#Motor initialization
 
 
 def motor_A(status, speed): # Motor A positive and negative rotation.
-  direction = "none"
+  direction: str = "none"
   if status == 1:
-      directoin = "forward"
+      direction = "forward"
   elif status == -1:
       direction = "backward"
   print('Moving motor A in direction {}'.format(direction))
@@ -68,7 +68,7 @@ def motor_A(status, speed): # Motor A positive and negative rotation.
 def motor_B(status, speed):            # Motor B positive and negative rotation.
   direction = "none"
   if status == 1:
-      directoin = "forward"
+      direction = "forward"
   elif status == -1:
       direction = "backward"
   print('Moving motor B in direction {}'.format(direction))
@@ -116,13 +116,12 @@ def destroy():
 if __name__ == '__main__':
   try:
     while True:
-      speed_set = 60
+      # speed_set = 60
       setup()
       move()
-      # move(speed_set, 'forward')
-      # time.sleep(3)
       # motorStop()
-      # time.sleep(1.5)
+      # move(speed_set, 'forward')
+      # motorStop()
       # move(speed_set, 'backward')
       # time.sleep(3)
       # motorStop()
