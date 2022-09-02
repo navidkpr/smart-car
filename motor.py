@@ -48,7 +48,7 @@ def motor_A(status, speed): # Motor A positive and negative rotation.
       direction = "forward"
   elif status == -1:
       direction = "backward"
-  print('Moving motor A in direction {}'.format(direction))
+  print('Moving motor A in direction {} with speed ${}'.format(direction, speed))
   if status == 0: # stop
     GPIO.output(Motor_B_Pin1, GPIO.LOW)
     GPIO.output(Motor_B_Pin2, GPIO.LOW)
@@ -71,7 +71,7 @@ def motor_B(status, speed):            # Motor B positive and negative rotation.
       direction = "forward"
   elif status == -1:
       direction = "backward"
-  print('Moving motor B in direction {}'.format(direction))
+  print('Moving motor B in direction {} with speed {}'.format(direction, speed))
   if status == 0: # stop
     GPIO.output(Motor_A_Pin1, GPIO.LOW)
     GPIO.output(Motor_A_Pin2, GPIO.LOW)
