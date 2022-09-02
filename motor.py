@@ -107,7 +107,7 @@ def move():
     elif key == Key.Right:
         print('moving right')
         motor_A(1, 100)
-        motor_B(1, 0)
+        # motor_B(1, 0)
     elif key == Key.Unknown:
         exit()
     else:
@@ -121,7 +121,7 @@ def move():
 
 def destroy():
   motorStop()
-  GPIO.cleanup()             # Release resource
+  GPIO.cleanup() # Release resource
 
 
 if __name__ == '__main__':
