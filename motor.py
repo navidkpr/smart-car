@@ -108,8 +108,8 @@ def move():
         print('moving right')
         motor_A(1, 100)
         motor_B(1, 50)
-    # elif key == Key.Unknown:
-    #     exit()
+    elif key == Key.Unknown:
+        exit()
     else:
         print('stop')
         break
@@ -125,17 +125,9 @@ def destroy():
 
 if __name__ == '__main__':
   try:
-    while True:
-      # speed_set = 60
-      setup()
-      move()
-      destroy()
-      # motorStop()
-      # move(speed_set, 'forward')
-      # motorStop()
-      # move(speed_set, 'backward')
-      # time.sleep(3)
-      # motorStop()
-      # time.sleep(1.5)
+    setup()
+    move()
+    destroy()
+    exit()
   except KeyboardInterrupt:
     destroy()
