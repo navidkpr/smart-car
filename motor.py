@@ -14,7 +14,7 @@ Motor_B_Pin2  = 18
 pwn_A = 0
 pwm_B = 0
 
-def motorStop():#Motor stops
+def motorStop(): #Motor stops
   GPIO.output(Motor_A_Pin1, GPIO.LOW)
   GPIO.output(Motor_A_Pin2, GPIO.LOW)
   GPIO.output(Motor_B_Pin1, GPIO.LOW)
@@ -23,7 +23,7 @@ def motorStop():#Motor stops
   GPIO.output(Motor_B_EN, GPIO.LOW)
 
 
-def setup():#Motor initialization
+def setup(): #Motor initialization
   global pwm_A, pwm_B
   GPIO.setwarnings(False)
   GPIO.setmode(GPIO.BCM)
@@ -53,19 +53,19 @@ def motor_A(status, speed): # Motor A positive and negative rotation.
     GPIO.output(Motor_B_Pin1, GPIO.LOW)
     GPIO.output(Motor_B_Pin2, GPIO.LOW)
     GPIO.output(Motor_B_EN, GPIO.LOW)
-  elif status == 1:                       # positive rotation.
+  elif status == 1: # positive rotation.
       GPIO.output(Motor_B_Pin1, GPIO.HIGH)
       GPIO.output(Motor_B_Pin2, GPIO.LOW)
       pwm_B.start(100)
       pwm_B.ChangeDutyCycle(speed)
-  elif status == -1:                      # negative rotation.
+  elif status == -1: # negative rotation.
       GPIO.output(Motor_B_Pin1, GPIO.LOW)
       GPIO.output(Motor_B_Pin2, GPIO.HIGH)
       pwm_B.start(0)
       pwm_B.ChangeDutyCycle(speed)
       
 
-def motor_B(status, speed):            # Motor B positive and negative rotation.
+def motor_B(status, speed): # Motor B positive and negative rotation.
   direction = "none"
   if status == 1:
       direction = "forward"
@@ -76,12 +76,12 @@ def motor_B(status, speed):            # Motor B positive and negative rotation.
     GPIO.output(Motor_A_Pin1, GPIO.LOW)
     GPIO.output(Motor_A_Pin2, GPIO.LOW)
     GPIO.output(Motor_A_EN, GPIO.LOW)
-  elif status == 1:                       # positive rotation.
+  elif status == 1: # positive rotation.
       GPIO.output(Motor_A_Pin1, GPIO.HIGH)
       GPIO.output(Motor_A_Pin2, GPIO.LOW)
       pwm_A.start(100)
       pwm_A.ChangeDutyCycle(speed)
-  elif status == -1:                      # negative rotation.
+  elif status == -1: # negative rotation.
       GPIO.output(Motor_A_Pin1, GPIO.LOW)
       GPIO.output(Motor_A_Pin2, GPIO.HIGH)
       pwm_A.start(0)
@@ -107,10 +107,11 @@ def move():
     elif key == Key.Right:
         print('moving right')
         motor_A(1, 100)
-        motor_B(1, 50)
+        motor_B(1, 0)
     elif key == Key.Unknown:
         exit()
     else:
+        motorStop()
         print('stop')
         break
         # motor_A(0, speed)
