@@ -94,20 +94,20 @@ def move():
     key: Key = getKey()
     if key == Key.Up:
         print('moving forward')
-        motor_A(1, 100)
-        # motor_B(1, 100)
+        # motor_A(1, 100)
+        motor_B(1, 100)
     elif key == Key.Down:
         print('moving backward')
-        motor_A(-1, 100)
-        # motor_B(-1, 100)
+        # motor_A(-1, 100)
+        motor_B(-1, 100)
     elif key == Key.Left:
         print('moving left')
-        motor_A(1, 50)
-        # motor_B(1, 100)
+        # motor_A(1, 50)
+        motor_B(1, 100)
     elif key == Key.Right:
         print('moving right')
-        motor_A(1, 100)
-        # motor_B(1, 0)
+        # motor_A(1, 100)
+        motor_B(1, 0)
     elif key == Key.Unknown:
         exit()
     else:
