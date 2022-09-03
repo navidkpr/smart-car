@@ -107,7 +107,7 @@ def move():
     elif key == Key.Right:
         print('moving right')
         # motor_A(1, 100)
-        motor_B(1, 0)
+        motor_B(1, 50)
     elif key == Key.Unknown:
         exit()
     else:
