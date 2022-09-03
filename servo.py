@@ -27,7 +27,7 @@ if __name__ == "__main__":
     while True:
         servo_angle(0, 0)   # Servo of port0 Rotate to 0 degrees.
         time.sleep(1)
-        servo_angle(0, 10000)  # Rotate to 90 degrees.
+        servo_angle(0, 90)  # Rotate to 90 degrees.
         time.sleep(1)
         servo_angle(0, 180) # Rotate to 180 degrees.
         time.sleep(1)
