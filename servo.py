@@ -29,5 +29,5 @@ if __name__ == "__main__":
         time.sleep(1)
         servo_angle(0, 90)  # Rotate to 90 degrees.
         time.sleep(1)
-        servo_angle(0, 180) # Rotate to 180 degrees.
-        time.sleep(1)
+        # servo_angle(0, 180) # Rotate to 180 degrees.
+        # time.sleep(1)
